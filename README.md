@@ -1,3 +1,5 @@
+# PUBLISHING IS WIP, I WILL NOTIFY WHEN AVAILABLE
+
 # SlideView
 
 SlideView is a highly customizable UI component for Jetpack Compose that allows you to create slide-to-trigger actions in your Android apps. It's perfect for implementing features like slide-to-unlock or slide-to-confirm actions.

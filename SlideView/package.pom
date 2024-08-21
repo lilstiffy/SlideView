@@ -1,0 +1,26 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>io.github.lilstiffy</groupId>
+    <artifactId>slide-view</artifactId>
+    <version>1.0</version>
+    <packaging>aar</packaging>
+
+    <name>SlideView</name>
+    <description>
+        SlideView is a highly customizable UI component for Jetpack Compose that allows you
+        to create slide-to-trigger actions in your Android apps.
+    </description>
+    <url>https://github.com/lilstiffy/SlideView</url>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://github.com/lilstiffy/SlideView/blob/master/LICENSE</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://svn.apache.org/viewvc/maven</url>
+    </scm>
+</project>

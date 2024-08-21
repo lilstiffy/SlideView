@@ -136,7 +136,7 @@ fun SlideView(
                     onDragStarted = {
                         isSliding = true
                         if (hapticsEnabled) {
-                            view.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_PRESS)
+                            view.performHapticFeedback(HapticFeedbackConstants.CONTEXT_CLICK)
                         }
                     },
                     onDragStopped = {

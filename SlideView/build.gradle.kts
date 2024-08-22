@@ -1,7 +1,15 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("maven-publish")
 }
+
+val properties = Properties()
+properties.load(project.rootProject.file("publishing.properties").inputStream())
+val githubUser: String = properties.getProperty("GITHUB_USER") ?: ""
+val githubToken: String = properties.getProperty("GITHUB_TOKEN") ?: ""
 
 android {
     namespace = "com.lilstiffy.slideview"
@@ -9,8 +17,6 @@ android {
 
     defaultConfig {
         minSdk = 23
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
 
@@ -35,6 +41,28 @@ android {
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
+    }
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("release") {
+            groupId = "com.lilstiffy"
+            artifactId = "slideview"
+            version = "1.0.0"
+            artifact("$buildDir/outputs/aar/SlideView-release.aar")
+        }
+    }
+
+    repositories {
+        maven {
+            name = "GithubPackages"
+            url = uri("https://maven.pkg.github.com/lilstiffy/SlideView")
+            credentials {
+                username = githubUser
+                password = githubToken
+            }
+        }
     }
 }
 

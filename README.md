@@ -33,6 +33,41 @@ SlideView(
     modifier = Modifier.fillMaxWidth()
 )
 ```
+Here's how to customise the theming of the component:
+```kotlin
+SlideView(
+    text = "Slide to confirm",
+    onSlideDone = {
+        Log.d("Fancy log", "Slide completed!")
+    },
+    config = SlideViewConfig().copy(backgroundColor = Color.Cyan, thumbColor = Color.Black),
+    modifier = Modifier.padding(horizontal = 32.dp)
+)
+```
+The theming is held within the SlideViewConfig object:
+```kotlin
+/**
+ * Configuration for the colors of the SwipeView.
+ *
+ * @param backgroundColor The background color of the SwipeView.
+ * @param thumbColor The color of the thumb icon.
+ * @param iconColor The color of the icon.
+ * @param textColor The color of the text.
+ * @param thumbIcon The icon to be displayed on the thumb.
+ * @param thumbIconDone The icon to be displayed on the thumb when the swipe is done.
+ *
+ * @author lilstiffy
+ */
+data class SlideViewConfig(
+    val backgroundColor: Color = Color.Black,
+    val thumbColor: Color = Color.White,
+    val iconColor: Color = Color.Black,
+    val textColor: Color = Color.White,
+
+    val thumbIcon: ImageVector = Icons.AutoMirrored.Outlined.KeyboardArrowRight,
+    val thumbIconDone:  ImageVector = Icons.Outlined.Check,
+)
+```
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
